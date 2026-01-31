@@ -1,0 +1,203 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+
+  <world name="eurobot_2022">
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <shadows>false</shadows>
+    </scene>
+    <light type="directional" name="light1">
+      <pose>1.5 1 50 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>1 1 1 0</specular>
+      <direction>1 0 0.5</direction>
+    </light>
+    <light type="directional" name="light2">
+      <pose>1.5 1 50 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>1 1 1 0</specular>
+      <direction>1 0 -0.5</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="ground_link">
+        <collision name="collision1">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 0</ambient>
+          <diffuse>0.1 0.1 0.2 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+        </visual>
+      </link>
+    </model>
+
+    <!--Playground-->
+    <include>
+        <name>playground</name>
+        <uri>model://nwt</uri>
+        <pose>1.5 1.0 -0.001 0 0 0</pose>
+    </include>
+
+    <!--Walls-->
+    <model name="wall1">
+      <static>true</static>
+      <pose>1.502 0 0.045 0 0 0</pose>
+      <link name="body">
+          <collision name="collision1">
+              <geometry>
+              <box>
+                  <size>3.04 0.02 0.09</size>
+              </box>
+              </geometry>
+          </collision>
+          <visual name="visual1">
+              <geometry>
+              <box>
+                  <size>3.04 0.02 0.09</size>
+              </box>
+              </geometry>
+              <material>
+              <ambient>0.71 0.69 0.63 1.0</ambient>
+              <diffuse>0.71 0.69 0.63 1.0</diffuse>
+              <specular>0.1 0.1 0.1 1</specular>
+              <emissive>0 0 0 0</emissive>
+              </material>
+          </visual>
+      </link>
+    </model>
+    <model name="wall2">
+      <static>true</static>
+      <pose>1.502 2.01 0.045 0 0 0</pose>
+      <link name="body">
+          <collision name="collision1">
+              <geometry>
+              <box>
+                  <size>3.04 0.02 0.09</size>
+              </box>
+              </geometry>
+          </collision>
+          <visual name="visual1">
+              <geometry>
+              <box>
+                  <size>3.04 0.02 0.09</size>
+              </box>
+              </geometry>
+              <material>
+              <ambient>0.71 0.69 0.63 1.0</ambient>
+              <diffuse>0.71 0.69 0.63 1.0</diffuse>
+              <specular>0.1 0.1 0.1 1</specular>
+              <emissive>0 0 0 0</emissive>
+              </material>
+          </visual>
+      </link>
+    </model>
+    <model name="wall3">
+        <static>true</static>
+        <pose>3.01 1.0 0.045 0 0 0</pose>
+        <link name="body">
+            <collision name="collision1">
+                <geometry>
+                <box>
+                    <size>0.02 2.0 0.09</size>
+                </box>
+                </geometry>
+            </collision>
+            <visual name="visual1">
+                <geometry>
+                <box>
+                    <size>0.02 2 0.09</size>
+                </box>
+                </geometry>
+                <material>
+                <ambient>0.71 0.69 0.63 1.0</ambient>
+                <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                <specular>0.1 0.1 0.1 1</specular>
+                <emissive>0 0 0 0</emissive>
+                </material>
+            </visual>
+        </link>
+    </model>
+        <model name="wall4">
+        <static>true</static>
+        <pose>-0.01 1.0 0.045 0 0 0</pose>
+        <link name="body">
+            <collision name="collision1">
+                <geometry>
+                <box>
+                    <size>0.02 2.0 0.09</size>
+                </box>
+                </geometry>
+            </collision>
+            <visual name="visual1">
+                <geometry>
+                <box>
+                    <size>0.02 2 0.09</size>
+                </box>
+                </geometry>
+                <material>
+                <ambient>0.71 0.69 0.63 1.0</ambient>
+                <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                <specular>0.1 0.1 0.1 1</specular>
+                <emissive>0 0 0 0</emissive>
+                </material>
+            </visual>
+        </link>
+    </model>
+
+
+    <!--Landmarks-->
+    <!-- Do not use Landmarks for NWT Tage
+    <include>
+        <name>landmark1</name>
+        <uri>model://eurobot_landmark</uri>
+        <pose>-0.094 0.05 0.25 0 0 0</pose>
+    </include>
+    <include>
+        <name>landmark2</name>
+        <uri>model://eurobot_landmark</uri>
+        <pose>-0.094 1.0 0.25 0 0 0</pose>
+    </include>
+    <include>
+        <name>landmark3</name>
+        <uri>model://eurobot_landmark</uri>
+        <pose>-0.094 1.95 0.25 0 0 0</pose>
+    </include>
+    <include>
+        <name>landmark4</name>
+        <uri>model://eurobot_landmark</uri>
+        <pose>3.094 0.05 0.25 0 0 0</pose>
+    </include>
+    <include>
+        <name>landmark5</name>
+        <uri>model://eurobot_landmark</uri>
+        <pose>3.094 1.0 0.25 0 0 0</pose>
+    </include>
+    <include>
+        <name>landmark6</name>
+        <uri>model://eurobot_landmark</uri>
+        <pose>3.094 1.95 0.25 0 0 0</pose>
+        <material>
+            <ambient>1.0 0.5 0.5 1</ambient>
+            <diffuse>1.0 0.5 0.5 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 0</emissive>
+        </material>
+    </include>
+    -->
+  </world>
+</sdf>

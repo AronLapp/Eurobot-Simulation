@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="Eurobot Stage Model">
+    <static>true</static>
+    <link name="stage">
+      <collision name="stage_collision">
+        <geometry>
+          <box>
+            <size>0.9 0.45 0.07</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="stage_visual">
+        <geometry>
+          <mesh>
+            <uri>model://eurobot_25/stage/meshes/eurobot_2025_stage.dae</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+  </model>
+</sdf>

@@ -1,0 +1,625 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+
+  <world name="eurobot_2022">
+
+    <!-- Plugin for simulating physics -->
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics">
+    </plugin>
+
+    <!-- Plugin for handling user commands -->
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands">
+    </plugin>
+
+    <!-- Plugin for broadcasting scene updates -->
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+
+    <!-- Paramter for the physics engine -->
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <!-- Plugin for handling sensors like the LIDAR -->
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <!-- Plugin for IMU -->
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
+    </plugin>
+
+    <!-- Plugin for contact sensor -->
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact">
+    </plugin>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <shadows>false</shadows>
+    </scene>
+    <light type="directional" name="light1">
+      <pose>1.5 1 50 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>1 1 1 0</specular>
+      <direction>1 0 0.5</direction>
+    </light>
+    <light type="directional" name="light2">
+      <pose>1.5 1 50 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>1 1 1 0</specular>
+      <direction>1 0 -0.5</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="ground_link">
+        <collision name="collision1">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 0</ambient>
+            <diffuse>0.1 0.1 0.2 0</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!--Playground-->
+    <include>
+      <name>playground</name>
+      <uri>model://eurobot_playground_22</uri>
+      <pose>1.5 1.0 -0.001 0 0 0</pose>
+    </include>
+
+    <!-- Playground attachments -->
+    <include>
+      <name>gallery_yellow</name>
+      <uri>model://eurobot_22/gallery_yellow</uri>
+      <pose>0.81 1.998 0.0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <name>gallery_purple</name>
+      <uri>model://eurobot_22/gallery_purple</uri>
+      <pose>2.19 1.998 0.0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <name>statuette_support_yellow</name>
+      <uri>model://eurobot_22/statuette_support_yellow</uri>
+      <pose>0 2.0 0.0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <name>statuette_support_purple</name>
+      <uri>model://eurobot_22/statuette_support_purple</uri>
+      <pose>0 2.0 0.0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <static>true</static>
+      <name>sample_support_yellow</name>
+      <uri>model://eurobot_22/sample_support_yellow</uri>
+      <pose>-0.0415 1.7 0.059 0 0 3.14159265</pose>
+    </include>
+
+    <include>
+      <static>true</static>
+      <name>sample_support_purple</name>
+      <uri>model://eurobot_22/sample_support_purple</uri>
+      <pose>3.0415 1.7 0.059 0 0 0</pose>
+    </include>
+
+    <include>
+      <static>false</static>
+      <name>excavation_square_yellow_1</name>
+      <uri>model://eurobot_22/excavation_square_yellow</uri>
+      <pose>0.6675 -0.0176 0.035 0 0 0</pose>
+    </include>
+    <include>
+      <static>false</static>
+      <name>excavation_square_yellow_2</name>
+      <uri>model://eurobot_22/excavation_square_yellow</uri>
+      <pose>0.8525 -0.0176 0.035 0 0 0</pose>
+    </include>
+    <include>
+      <static>false</static>
+      <name>excavation_square_x_1</name>
+      <uri>model://eurobot_22/excavation_square_x</uri>
+      <pose>1.0375 -0.0176 0.035 0 0 0</pose>
+    </include>
+    <include>
+      <static>false</static>
+      <name>excavation_square_purple_1</name>
+      <uri>model://eurobot_22/excavation_square_purple</uri>
+      <pose>1.2225 -0.0176 0.035 0 0 0</pose>
+    </include>
+    <include>
+      <static>false</static>
+      <name>excavation_square_yellow_3</name>
+      <uri>model://eurobot_22/excavation_square_yellow</uri>
+      <pose>1.4075 -0.0176 0.035 0 0 0</pose>
+    </include>
+    <include>
+      <static>false</static>
+      <name>excavation_square_yellow_4</name>
+      <uri>model://eurobot_22/excavation_square_yellow</uri>
+      <pose>1.685 -0.0176 0.035 0 0 0</pose>
+    </include>
+    <include>
+      <static>false</static>
+      <name>excavation_square_purple_2</name>
+      <uri>model://eurobot_22/excavation_square_purple</uri>
+      <pose>1.870 -0.0176 0.035 0 0 0</pose>
+    </include>
+    <include>
+      <static>false</static>
+      <name>excavation_square_x_2</name>
+      <uri>model://eurobot_22/excavation_square_x</uri>
+      <pose>2.055 -0.0176 0.035 0 0 0</pose>
+    </include>
+    <include>
+      <static>false</static>
+      <name>excavation_square_purple_3</name>
+      <uri>model://eurobot_22/excavation_square_purple</uri>
+      <pose>2.240 -0.0176 0.035 0 0 0</pose>
+    </include>
+    <include>
+      <static>false</static>
+      <name>excavation_square_purple_4</name>
+      <uri>model://eurobot_22/excavation_square_purple</uri>
+      <pose>2.425 -0.0176 0.035 0 0 0</pose>
+    </include>
+
+    <!-- Hexagoal objects on ground yellow side -->
+    <include>
+      <name>hex_green_1</name>
+      <uri>model://eurobot_22/hexagon_green</uri>
+      <pose>0.83 1.325 0.015 0 0 0.5235988 </pose>
+    </include>
+
+    <include>
+      <name>hex_blue_1</name>
+      <uri>model://eurobot_22/hexagon_blue</uri>
+      <pose>0.9 1.45 0.015 0 0 0.5235988 </pose>
+    </include>
+
+    <include>
+      <name>hex_red_1</name>
+      <uri>model://eurobot_22/hexagon_red</uri>
+      <pose>0.9 1.205 0.015 0 0 0.5235988 </pose>
+    </include>
+
+    <!-- Hexagoal objects on ground purple side-->
+    <include>
+      <name>hex_green_2</name>
+      <uri>model://eurobot_22/hexagon_green</uri>
+      <pose>2.17 1.325 0.015 0 0 0.5235988 </pose>
+    </include>
+
+    <include>
+      <name>hex_blue_2</name>
+      <uri>model://eurobot_22/hexagon_blue</uri>
+      <pose>2.1 1.45 0.015 0 0 0.5235988 </pose>
+    </include>
+
+    <include>
+      <name>hex_red_2</name>
+      <uri>model://eurobot_22/hexagon_red</uri>
+      <pose>2.1 1.205 0.015 0 0 0.5235988 </pose>
+    </include>
+
+    <include>
+      <name>smaple_support_table_1</name>
+      <uri>model://eurobot_22/sample_support_table</uri>
+      <pose>0.0 0.75 0.0 0 0 -1.571 </pose>
+    </include>
+
+    <include>
+      <name>smaple_support_table_2</name>
+      <uri>model://eurobot_22/sample_support_table</uri>
+      <pose>3.0 0.75 0.0 0 0 1.571 </pose>
+    </include>
+
+    <include>
+      <name>smaple_support_table_3</name>
+      <uri>model://eurobot_22/sample_support_table</uri>
+      <pose>1.35 2.0 0.0 0 0 3.142 </pose>
+    </include>
+
+    <include>
+      <name>smaple_support_table_4</name>
+      <uri>model://eurobot_22/sample_support_table</uri>
+      <pose>1.65 2.0 0.0 0 0 3.142 </pose>
+    </include>
+
+    <!--Walls-->
+    <model name="wall1">
+      <static>true</static>
+      <pose>1.502 0 0.035 0 0 0</pose>
+      <link name="body">
+        <collision name="collision1">
+          <geometry>
+            <box>
+              <size>3.04 0.02 0.07</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <box>
+              <size>3.04 0.02 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.71 0.69 0.63 1.0</ambient>
+            <diffuse>0.71 0.69 0.63 1.0</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall2">
+      <static>true</static>
+      <pose>1.502 2.01 0.035 0 0 0</pose>
+      <link name="body">
+        <collision name="collision1">
+          <geometry>
+            <box>
+              <size>3.04 0.02 0.07</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <box>
+              <size>3.04 0.02 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.71 0.69 0.63 1.0</ambient>
+            <diffuse>0.71 0.69 0.63 1.0</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall3">
+      <static>true</static>
+      <pose>3.01 1.0 0.035 0 0 0</pose>
+      <link name="body">
+        <collision name="collision1">
+          <geometry>
+            <box>
+              <size>0.02 2.0 0.07</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <box>
+              <size>0.02 2 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.71 0.69 0.63 1.0</ambient>
+            <diffuse>0.71 0.69 0.63 1.0</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall4">
+      <static>true</static>
+      <pose>-0.01 1.0 0.035 0 0 0</pose>
+      <link name="body">
+        <collision name="collision1">
+          <geometry>
+            <box>
+              <size>0.02 2.0 0.07</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <box>
+              <size>0.02 2 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.71 0.69 0.63 1.0</ambient>
+            <diffuse>0.71 0.69 0.63 1.0</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <!--Landmarks yellow-->
+    <model name="landmark2">
+      <pose>-0.094 1.0 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>20.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.96 0.71 0.0 1</ambient>
+            <diffuse>0.96 0.71 0.0 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark4">
+      <pose>3.094 0.05 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>40.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.96 0.71 0.0 1</ambient>
+            <diffuse>0.96 0.71 0.0 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark6">
+      <pose>3.094 1.95 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>60.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.96 0.71 0.0 1</ambient>
+            <diffuse>0.96 0.71 0.0 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!--Landmarks purple-->
+    <!--
+    <model name="landmark1">
+      <pose>-0.094 0.05 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>10.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.52 0.30 0.31 1</ambient>
+              <diffuse>0.52 0.30 0.31 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark3">
+      <pose>-0.094 1.95 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+            <laser_retro>30.0</laser_retro>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.52 0.30 0.31 1</ambient>
+              <diffuse>0.52 0.30 0.31 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark5">
+      <pose>3.094 1.0 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>50.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.52 0.30 0.31 1</ambient>
+              <diffuse>0.52 0.30 0.31 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    -->
+
+    <!--
+    <model name="room_wall1">
+          <static>true</static>
+          <pose>-3.0 2.0 0.5 0 0 0</pose>
+          <link name="body">
+              <collision name="collision1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+              </collision>
+              <visual name="visual1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+                  <material>
+                  <ambient>0.71 0.69 0.63 1.0</ambient>
+                  <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                  <specular>0.1 0.1 0.1 1</specular>
+                  <emissive>0 0 0 0</emissive>
+                  </material>
+              </visual>
+          </link>
+      </model>
+
+      <model name="room_wall2">
+          <static>true</static>
+          <pose>1.5 6.0 0.5 0 0 0</pose>
+          <link name="body">
+              <collision name="collision1">
+                  <geometry>
+                  <box>
+                      <size>9.0 0.1 1.0</size>
+                  </box>
+                  </geometry>
+              </collision>
+              <visual name="visual1">
+                  <geometry>
+                  <box>
+                      <size>9.0 0.1 1.0</size>
+                  </box>
+                  </geometry>
+                  <material>
+                  <ambient>0.71 0.69 0.63 1.0</ambient>
+                  <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                  <specular>0.1 0.1 0.1 1</specular>
+                  <emissive>0 0 0 0</emissive>
+                  </material>
+              </visual>
+          </link>
+      </model>
+
+    <model name="room_wall3">
+          <static>true</static>
+          <pose>6.0 2.0 0.5 0 0 0</pose>
+          <link name="body">
+              <collision name="collision1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+              </collision>
+              <visual name="visual1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+                  <material>
+                  <ambient>0.71 0.69 0.63 1.0</ambient>
+                  <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                  <specular>0.1 0.1 0.1 1</specular>
+                  <emissive>0 0 0 0</emissive>
+                  </material>
+              </visual>
+          </link>
+      </model>
+      -->
+
+  </world>
+</sdf>

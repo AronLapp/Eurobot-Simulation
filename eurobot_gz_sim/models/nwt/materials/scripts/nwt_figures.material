@@ -1,0 +1,13 @@
+material NWT/Figures
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture nwt_figures.png
+      }
+    }
+  }
+}

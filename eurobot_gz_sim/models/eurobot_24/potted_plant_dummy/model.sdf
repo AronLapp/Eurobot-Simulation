@@ -1,0 +1,48 @@
+<?xml version ="1.0"?>
+<sdf version="1.6">
+    <model name="potted_plant_dummy">
+        <static>false</static>
+        <link name="pot_link">
+            <pose>0 0 0 0 0 0</pose>
+            <collision name="potted_plant_collision">
+                <pose>0 0 0.054 0 0 0</pose>
+                <geometry>
+                    <cylinder>
+                        <length>0.108</length>
+                        <radius>0.035</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <inertial>
+                <pose>0 0 0.054 0 0 0</pose>
+                <mass>0.75</mass>
+                <inertia>
+                    <ixx>9.586875e-04</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>9.586875e-04</iyy>
+                    <iyz>0</iyz>
+                    <izz>4.59375e-04</izz>
+                </inertia>
+            </inertial>
+            <visual name="potted_plant_visual">
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://eurobot_24/pots/meshes/Pot_Plante.dae</uri>
+                        <scale>1.0 1.0 1.0</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <visual name="plant_spacer_visual">
+                <pose>0 0 0.003 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://eurobot_24/plants/meshes/plante.dae</uri>
+                        <scale>1.0 1.0 1.0</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+    </model>
+</sdf>

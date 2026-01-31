@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+    <model name="wall">
+        <static>true</static>
+        <pose>1.502 0 0 0 0 0</pose>
+        <link name="body">
+            <collision name="collision1">
+                <geometry>
+                <box>
+                    <size>3.04 0.02 0.09</size>
+                </box>
+                </geometry>
+            </collision>
+            <visual name="visual1">
+                <geometry>
+                <box>
+                    <size>3.04 0.02 0.09</size>
+                </box>
+                </geometry>
+                <material>
+                <ambient>0.71 0.69 0.63 1.0</ambient>
+                <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                <specular>0.1 0.1 0.1 1</specular>
+                <emissive>0 0 0 0</emissive>
+                </material>
+            </visual>
+        </link>
+    </model>
+</sdf>

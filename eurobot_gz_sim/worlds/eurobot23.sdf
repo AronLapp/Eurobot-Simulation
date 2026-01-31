@@ -1,0 +1,530 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+
+    <world name="eurobot_2023">
+        <!-- Plugin for simulating physics -->
+        <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics">
+        </plugin>
+
+        <!-- Plugin for handling user commands -->
+        <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands">
+        </plugin>
+
+        <!-- Plugin for broadcasting scene updates -->
+        <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster">
+        </plugin>
+
+        <!-- Paramter for the physics engine -->
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.01</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+
+        <!-- Plugin for handling sensors like the LIDAR -->
+        <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+            <render_engine>ogre2</render_engine>
+        </plugin>
+
+        <!-- Plugin for IMU -->
+        <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
+        </plugin>
+
+        <!-- Plugin for contact sensor -->
+        <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact">
+        </plugin>
+
+        <scene>
+            <ambient>0.4 0.4 0.4 1</ambient>
+            <shadows>false</shadows>
+        </scene>
+        <light type="directional" name="light1">
+            <pose>1.5 1 50 0 0 0</pose>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+            <specular>1 1 1 0</specular>
+            <direction>1 0 0.5</direction>
+        </light>
+        <light type="directional" name="light2">
+            <pose>1.5 1 50 0 0 0</pose>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+            <specular>1 1 1 0</specular>
+            <direction>1 0 -0.5</direction>
+        </light>
+
+        <model name="ground_plane">
+            <static>true</static>
+            <link name="ground_link">
+                <collision name="collision1">
+                    <geometry>
+                        <plane>
+                            <normal>0 0 1</normal>
+                        </plane>
+                    </geometry>
+                </collision>
+                <visual name="visual1">
+                    <geometry>
+                        <plane>
+                            <normal>0 0 1</normal>
+                            <size>100 100</size>
+                        </plane>
+                    </geometry>
+                    <material>
+                        <ambient>0.1 0.1 0.1 0</ambient>
+                        <diffuse>0.1 0.1 0.2 0</diffuse>
+                        <specular>0 0 0 0</specular>
+                        <emissive>0 0 0 0</emissive>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <!--Playground-->
+        <include>
+            <name>playground</name>
+            <uri>model://eurobot_playground_23</uri>
+            <pose>1.5 1.0 -0.001 0 0 0</pose>
+        </include>
+
+        <!--Walls-->
+
+        <include>
+            <name>wall1</name>
+            <uri>model://eurobot_23/walls/x_orient</uri>
+            <pose>1.5 -0.01 0.025 0 0 0</pose>
+        </include>
+        <include>
+            <name>wall2</name>
+            <uri>model://eurobot_23/walls/x_orient</uri>
+            <pose>1.5 2.01 0.025 0 0 0</pose>
+        </include>
+        <include>
+            <name>wall3</name>
+            <uri>model://eurobot_23/walls/y_orient</uri>
+            <pose>-0.01 1 0.025 0 0 0</pose>
+        </include>
+        <include>
+            <name>wall4</name>
+            <uri>model://eurobot_23/walls/y_orient</uri>
+            <pose>3.01 1 0.025 0 0 0</pose>
+        </include>
+
+        <!--Landmarks yellow-->
+        <model name="landmark2">
+            <pose>-0.094 1.0 0.25 0 0 0</pose>
+            <static>true</static>
+            <link name="link">
+                <collision name="collision">
+                    <geometry>
+                        <cylinder>
+                            <length>0.5</length>
+                            <radius>0.05</radius>
+                        </cylinder>
+                    </geometry>
+                    <laser_retro>20.0</laser_retro>
+                </collision>
+                <visual name="visual">
+                    <geometry>
+                        <cylinder>
+                            <length>0.5</length>
+                            <radius>0.05</radius>
+                        </cylinder>
+                    </geometry>
+                    <material>
+                        <ambient>0.96 0.71 0.0 1</ambient>
+                        <diffuse>0.96 0.71 0.0 1</diffuse>
+                        <specular>0 0 0 0</specular>
+                        <emissive>0 0 0 0</emissive>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="landmark4">
+            <pose>3.094 0.05 0.25 0 0 0</pose>
+            <static>true</static>
+            <link name="link">
+                <collision name="collision">
+                    <geometry>
+                        <cylinder>
+                            <length>0.5</length>
+                            <radius>0.05</radius>
+                        </cylinder>
+                    </geometry>
+                    <laser_retro>40.0</laser_retro>
+                </collision>
+                <visual name="visual">
+                    <geometry>
+                        <cylinder>
+                            <length>0.5</length>
+                            <radius>0.05</radius>
+                        </cylinder>
+                    </geometry>
+                    <material>
+                        <ambient>0.96 0.71 0.0 1</ambient>
+                        <diffuse>0.96 0.71 0.0 1</diffuse>
+                        <specular>0 0 0 0</specular>
+                        <emissive>0 0 0 0</emissive>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="landmark6">
+            <pose>3.094 1.95 0.25 0 0 0</pose>
+            <static>true</static>
+            <link name="link">
+                <collision name="collision">
+                    <geometry>
+                        <cylinder>
+                            <length>0.5</length>
+                            <radius>0.05</radius>
+                        </cylinder>
+                    </geometry>
+                    <laser_retro>60.0</laser_retro>
+                </collision>
+                <visual name="visual">
+                    <geometry>
+                        <cylinder>
+                            <length>0.5</length>
+                            <radius>0.05</radius>
+                        </cylinder>
+                    </geometry>
+                    <material>
+                        <ambient>0.96 0.71 0.0 1</ambient>
+                        <diffuse>0.96 0.71 0.0 1</diffuse>
+                        <specular>0 0 0 0</specular>
+                        <emissive>0 0 0 0</emissive>
+                    </material>
+                </visual>
+            </link>
+        </model>
+        <!--Landmarks purple-->
+        <!--
+        <model name="landmark1">
+        <pose>-0.094 0.05 0.25 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+            <collision name="collision">
+            <geometry>
+                <cylinder>
+                <length>0.5</length>
+                <radius>0.05</radius>
+                </cylinder>
+            </geometry>
+            <laser_retro>10.0</laser_retro>
+            </collision>
+            <visual name="visual">
+            <geometry>
+                <cylinder>
+                <length>0.5</length>
+                <radius>0.05</radius>
+                </cylinder>
+            </geometry>
+                <material>
+                <ambient>0.52 0.30 0.31 1</ambient>
+                <diffuse>0.52 0.30 0.31 1</diffuse>
+                <specular>0 0 0 0</specular>
+                <emissive>0 0 0 0</emissive>
+            </material>
+            </visual>
+        </link>
+        </model>
+
+        <model name="landmark3">
+        <pose>-0.094 1.95 0.25 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+            <collision name="collision">
+            <geometry>
+                <cylinder>
+                <length>0.5</length>
+                <radius>0.05</radius>
+                </cylinder>
+                <laser_retro>30.0</laser_retro>
+            </geometry>
+            </collision>
+            <visual name="visual">
+            <geometry>
+                <cylinder>
+                <length>0.5</length>
+                <radius>0.05</radius>
+                </cylinder>
+            </geometry>
+                <material>
+                <ambient>0.52 0.30 0.31 1</ambient>
+                <diffuse>0.52 0.30 0.31 1</diffuse>
+                <specular>0 0 0 0</specular>
+                <emissive>0 0 0 0</emissive>
+            </material>
+            </visual>
+        </link>
+        </model>
+
+        <model name="landmark5">
+        <pose>3.094 1.0 0.25 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+            <collision name="collision">
+            <geometry>
+                <cylinder>
+                <length>0.5</length>
+                <radius>0.05</radius>
+                </cylinder>
+            </geometry>
+            <laser_retro>50.0</laser_retro>
+            </collision>
+            <visual name="visual">
+            <geometry>
+                <cylinder>
+                <length>0.5</length>
+                <radius>0.05</radius>
+                </cylinder>
+            </geometry>
+                <material>
+                <ambient>0.52 0.30 0.31 1</ambient>
+                <diffuse>0.52 0.30 0.31 1</diffuse>
+                <specular>0 0 0 0</specular>
+                <emissive>0 0 0 0</emissive>
+            </material>
+            </visual>
+        </link>
+        </model>
+        -->
+
+        <!--Cherry Holder-->
+
+        <include>
+            <name>holder1</name>
+            <uri>model://eurobot_23/cherry_holder</uri>
+            <pose>1.5 0.015 0.015 0 0 0</pose>
+        </include>
+        <include>
+            <name>holder2</name>
+            <uri>model://eurobot_23/cherry_holder</uri>
+            <pose>1.5 1.985 0.015 0 0 0</pose>
+        </include>
+        <include>
+            <name>holder3</name>
+            <uri>model://eurobot_23/cherry_holder</uri>
+            <pose>0.15 1 0.015 0 0 0</pose>
+        </include>
+        <include>
+            <name>holder4</name>
+            <uri>model://eurobot_23/cherry_holder</uri>
+            <pose>2.85 1 0.015 0 0 0</pose>
+        </include>
+
+
+
+        <!--Cakes-->
+
+        <!--Cake Set 1-->
+        <!--Cake1-->
+        <include>
+            <name>icing1</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>0.575 0.225 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>icing2</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>0.575 0.225 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>icing3</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>0.575 0.225 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake2-->
+        <include>
+            <name>cream1</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>0.775 0.225 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>cream2</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>0.775 0.225 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>cream3</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>0.775 0.225 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake3-->
+        <include>
+            <name>sponge1</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.125 0.725 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>sponge2</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.125 0.725 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>sponge3</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.125 0.725 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake Set 2-->
+        <!--Cake4-->
+        <include>
+            <name>sponge4</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.875 0.725 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>sponge5</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.875 0.725 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>sponge6</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.875 0.725 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake5-->
+
+        <include>
+            <name>cream4</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>2.225 0.225 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>cream5</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>2.225 0.225 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>cream6</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>2.225 0.225 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake6-->
+        <include>
+            <name>icing4</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>2.425 0.225 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>icing5</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>2.425 0.225 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>icing6</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>2.425 0.225 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake Set 3-->
+        <!--Cake7-->
+        <include>
+            <name>icing7</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>2.425 1.775 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>icing8</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>2.425 1.775 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>icing9</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>2.425 1.775 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake8-->
+        <include>
+            <name>cream7</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>2.225 1.775 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>cream8</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>2.225 1.775 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>cream9</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>2.225 1.775 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake9-->
+        <include>
+            <name>sponge7</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.875 1.275 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>sponge8</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.875 1.275 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>sponge9</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.875 1.275 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake Set 4-->
+        <!--Cake10-->
+        <include>
+            <name>sponge10</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.125 1.275 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>sponge11</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.125 1.275 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>sponge12</name>
+            <uri>model://eurobot_23/cake_sponge</uri>
+            <pose>1.125 1.275 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake11-->
+        <include>
+            <name>cream10</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>0.775 1.775 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>cream11</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>0.775 1.775 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>cream12</name>
+            <uri>model://eurobot_23/cake_cream</uri>
+            <pose>0.775 1.775 0.00 0 0 0</pose>
+        </include>
+
+        <!--Cake12-->
+        <include>
+            <name>icing10</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>0.575 1.775 0.04 0 0 0</pose>
+        </include>
+        <include>
+            <name>icing11</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>0.575 1.775 0.02 0 0 0</pose>
+        </include>
+        <include>
+            <name>icing12</name>
+            <uri>model://eurobot_23/cake_icing</uri>
+            <pose>0.575 1.775 0.00 0 0 0</pose>
+        </include>
+
+    </world>
+</sdf>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="statuette_support_purple_model">
+  <static>true</static>
+  <link name="statuette_support_purple_link">
+      <collision name="statuette_support_purple_collision">
+        <geometry>
+          <mesh>
+            <uri>model://eurobot_22/statuette_support_purple/meshes/statuette_support_purple.glb</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="statuette_support_purple_visual">
+        <geometry>
+          <mesh>
+            <uri>model://eurobot_22/statuette_support_purple/meshes/statuette_support_purple.glb</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

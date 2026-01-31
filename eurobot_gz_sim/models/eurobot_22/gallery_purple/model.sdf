@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="gallery_purple_model">
+  <static>true</static>
+  <link name="gallery_purple_link">
+    <visual name="gallery_purple_visual">
+      <geometry>
+        <mesh>
+          <uri>model://eurobot_22/gallery_purple/meshes/gallery_purple.glb</uri>
+          <scale>1.0 1.0 1.0</scale>
+        </mesh>
+      </geometry>
+    </visual>
+    <!-- Erstelle Collision aus Boxen da sonst die Sechsecke sonst im mesh stecken bleiben -->
+      <!-- Erste Collision Box -->
+      <collision name="gallery_purple_collision_box1">
+        <pose>0 0.025 0.135 1.047198 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.72 0.3 0.022</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- Zweite Collision Box -->
+      <collision name="gallery_purple_collision_box2">
+        <pose>0.0 -0.0645 0.0247 1.047198 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.72 0.044 0.022</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

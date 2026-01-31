@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="Eurobot Crate Model ">
+    <static>false</static>
+    <link name="crate">
+      <collision name="crate_collision">
+        <geometry>
+          <box>
+            <size>0.15 0.05 0.03</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
+            </ode>
+          </friction>
+          <!-- <contact>
+            <ode>
+              <kp>100000</kp> -->          <!-- Spring stiffness -->
+          <!-- <kd>1</kd> -->          <!-- Damping coefficient -->
+          <!-- </ode>
+          </contact> -->
+        </surface>
+      </collision>
+      <!-- Inertial for beech wood (Buche) -->
+      <inertial>
+        <inertia>
+          <ixx>0.0000459</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.0003159</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.0003375</izz>
+        </inertia>
+        <mass>0.16</mass>
+      </inertial>
+      <!-- Inertial for spruce wood (Fichte)
+      <inertial>
+        <inertia>
+          <ixx>0.00361</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00383</iyy>
+          <iyz>0</iyz>
+          <izz>0.00023</izz>
+        </inertia>
+        <mass>0.27</mass>
+      </inertial>
+      -->
+      <visual name="crate_visual">
+        <pose>0 0 0 1.57 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://eurobot_26/crate/meshes/crate.glb</uri>
+            <scale>2.0 2.0 2.0</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

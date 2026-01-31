@@ -1,0 +1,13 @@
+material Solarpanel/2024
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture vinyle_excavation_yellow.png
+      }
+    }
+  }
+}

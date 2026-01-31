@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+  <model name="cake_cream">
+    <static>false</static>
+    <link name="cake_cream">
+      <collision name="cake_cream">
+        <geometry>
+          <cylinder>
+            <radius>0.06</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <inertial>
+        <inertia>
+          <ixx>0.1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.1</iyy>
+          <iyz>0</iyz>
+          <izz>0.1</izz>
+        </inertia>
+        <mass>0.1</mass>
+      </inertial>
+      <visual name="cake_cream">
+        <geometry>
+          <cylinder>
+            <radius>0.06</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+
+        <material>
+          <ambient>0.97 0.71 0 1</ambient>
+          <diffuse>0.97 0.71 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+    </link>
+
+  </model>
+</sdf>

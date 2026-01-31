@@ -1,0 +1,13 @@
+material Playground/2023
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture vinyle_table_2024.png
+      }
+    }
+  }
+}
