@@ -1,0 +1,38 @@
+<?xml version ="1.0"?>
+<sdf version="1.6">
+    <model name="pot">
+        <static>false</static>
+        <link name="pot_link">
+            <collision name="pot_collision">
+                <pose>0 0 0.0325 0 0 0</pose>
+                <geometry>
+                    <cylinder>
+                        <length>0.065</length>
+                        <radius>0.035</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <inertial>
+                <pose>0 0 0.0325 0 0 0</pose>
+                <mass>0.05</mass>
+                <inertia>
+                    <ixx>3.2916667e-05</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>3.2916667e-05</iyy>
+                    <iyz>0</iyz>
+                    <izz>3.0625e-05</izz>
+                </inertia>
+            </inertial>
+            <visual name="pot_visual">
+                <pose>0 0 -0.0325 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://eurobot_24/pots/meshes/Pot_Plante.dae</uri>
+                        <scale>1.0 1.0 1.0</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+    </model>
+</sdf>

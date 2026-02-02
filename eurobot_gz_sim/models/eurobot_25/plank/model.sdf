@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="Eurobot Plank Model ">
+    <static>false</static>
+    <link name="plank">
+      <collision name="plank_collision">
+        <geometry>
+          <box>
+            <size>0.4 0.1 0.015</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
+            </ode>
+          </friction>
+           <!-- <contact>
+            <ode>
+              <kp>100000</kp> -->  <!-- Spring stiffness -->
+              <!-- <kd>1</kd> -->       <!-- Damping coefficient -->
+            <!-- </ode>
+          </contact> -->
+        </surface>
+      </collision>
+      <!-- Inertial for beech wood (Buche) -->
+      <inertial>
+        <inertia>
+          <ixx>0.00601</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00638</iyy>
+          <iyz>0</iyz>
+          <izz>0.00038</izz>
+        </inertia>
+        <mass>0.45</mass>
+      </inertial>
+      <!-- Inertial for spruce wood (Fichte)
+      <inertial>
+        <inertia>
+          <ixx>0.00361</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00383</iyy>
+          <iyz>0</iyz>
+          <izz>0.00023</izz>
+        </inertia>
+        <mass>0.27</mass>
+      </inertial>
+      -->
+      <visual name="plank_visual">
+        <geometry>
+          <box>
+            <size>0.4 0.1 0.015</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.80 0.60 0.30 1.0</ambient>
+          <diffuse>0.80 0.60 0.30 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="Eurobot Ramp Blue Model">
+    <static>true</static>
+    <link name="ramp_blue">
+      <collision name="ramp_blue_collision">
+        <geometry>
+          <mesh>
+            <uri>model://eurobot_25/ramp_blue/meshes/eurobot_2025_ramp_blue.dae</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="ramp_blue_visual">
+        <geometry>
+          <mesh>
+            <uri>model://eurobot_25/ramp_blue/meshes/eurobot_2025_ramp_blue.dae</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+  </model>
+</sdf>

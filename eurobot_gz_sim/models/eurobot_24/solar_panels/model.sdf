@@ -1,0 +1,105 @@
+<?xml version ="1.0"?>
+<sdf version="1.6">
+    <model name="solar_panel">
+        <static>false</static>
+        <link name="solar_panel_mount">
+            <collision name="solar_panel_mount_collision">
+                <pose>0 0 -0.025 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>0.06 0.02 0.05</size>
+                    </box>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <visual name="solar_panel_mount_visual">
+                <pose>0 0 -0.025 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://eurobot_24/solar_panels/meshes/Support_Panneau_Solaire.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <link name="solar_panel">
+            <pose>0 0 0.029 0 0 0</pose>
+            <collision name="solar_panel_collision">
+                <geometry>
+                    <box>
+                        <size>0.1 0.1 0.034</size>
+                    </box>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <visual name="solar_panel_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://eurobot_24/solar_panels/meshes/Panneau_Solaire.dae</uri>
+                        <scale>1 1 1</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <visual name="solar_panel_texture">
+                <pose>0 0.015 0.005 0 0 -1.57079632679</pose>
+                <geometry>
+                    <box>
+                        <size>0.1 0.1 0.0001</size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>1 1 1 1</ambient>
+                    <diffuse>1 1 1 1</diffuse>
+                    <specular>0.1 0.1 0.1 1</specular>
+                    <pbr>
+                        <metal>
+                            <albedo_map>materials/textures/vinyle_solar_panel.png</albedo_map>
+                            <roughness>1.0</roughness>
+                            <metalness>0.0</metalness>
+                        </metal>
+                    </pbr>
+                </material>
+            </visual>
+        </link>
+        <joint name="mount_to_world" type="fixed">
+            <parent>world</parent>
+            <child>solar_panel_mount</child>
+            <pose>0 0 0 0 0 0</pose>
+        </joint>
+        <joint name="solar_panel_yaw" type="revolute">
+            <parent>solar_panel_mount</parent>
+            <child>solar_panel</child>
+            <pose>0 0 0 0 0 0</pose>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-3.14159</lower>
+                    <upper> 3.14159</upper>
+                </limit>
+                <dynamics>
+                    <damping>0.02</damping>
+                </dynamics>
+            </axis>
+        </joint>
+    </model>
+</sdf>

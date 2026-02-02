@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="sample_support_table_model">
+  <static>true</static>
+    <link name="sample_support_table_link">
+      <collision name="collision_box_1">
+        <pose>0 0.091 0.011 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 0.022 0.022</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="collision_box_2">
+        <pose>0.064 0.04 0.011 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.022 0.08 0.022</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="collision_box_3">
+        <pose>-0.064 0.04 0.011 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.022 0.08 0.022</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="collision_box_4">
+        <pose>0 0.011 0.011 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.106 0.022 0.022</size>
+          </box>
+        </geometry>
+      </collision>
+<!--
+      <collision name="collision_box_5">
+        <pose>0 0.0125 0.032 -1.14 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.106 0.080 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <collision name="collision_box_6">
+        <pose>0 0.042 -0.0023 -1.14 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.106 0.01 0.015</size>
+          </box>
+        </geometry>
+      </collision>
+      
+      <collision name="collision_box_7">
+        <pose>0 0.0585 -0.0023 -1.14 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.106 0.01 0.015</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <collision name="collision_box_8">
+        <pose>0 0.075 -0.0023 -1.14 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.106 0.01 0.015</size>
+          </box>
+        </geometry>
+      </collision>
+-->
+      
+      <visual name="visual_box_1">
+        <pose>0 0.091 0.011 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 0.022 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.71 0.69 0.63 1.0</ambient>
+          <diffuse>0.71 0.69 0.63 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+          </material>
+      </visual>
+      <visual name="visual_box_2">
+        <pose>0.064 0.04 0.011 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.022 0.08 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.71 0.69 0.63 1.0</ambient>
+          <diffuse>0.71 0.69 0.63 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+          </material>
+      </visual>
+      <visual name="visual_box_3">
+        <pose>-0.064 0.04 0.011 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.022 0.08 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.71 0.69 0.63 1.0</ambient>
+          <diffuse>0.71 0.69 0.63 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+          </material>
+      </visual>
+      <visual name="visual_box_4">
+        <pose>0 0.011 0.011 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.106 0.022 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.71 0.69 0.63 1.0</ambient>
+          <diffuse>0.71 0.69 0.63 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+          </material>
+      </visual>
+    </link>
+
+    <include>
+      <name>hex_red_in_support_table</name>
+        <uri>model://eurobot_22/hexagon_red</uri>
+        <pose>0 0.013 0.0615 -1.140 0  0</pose>
+    </include>
+
+    <include>
+      <name>hex_green_in_support_table</name>
+        <uri>model://eurobot_22/hexagon_green</uri>
+        <pose>0 0.0295 0.0615 -1.140 0  0</pose>
+    </include>
+
+    <include>
+      <name>hex_blue_in_support_table</name>
+        <uri>model://eurobot_22/hexagon_blue</uri>
+        <pose>0 0.046 0.0615 -1.140 0  0</pose>
+    </include>
+
+  </model>  
+</sdf>

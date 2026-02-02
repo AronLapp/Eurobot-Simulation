@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="Eurobot Cans Red Blue Blue Model">
+    <static>false</static>
+    <link name="cans_red_blue_blue_link">
+      <collision name="cans_red_blue_blue_collision">
+        <geometry>
+          <cylinder>
+            <length>0.11</length>
+            <radius>0.0365</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.5</mu>
+              <mu2>0.5</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <!-- <contact>
+          <ode>
+            <kp>100000</kp> -->        <!-- Spring stiffness -->
+        <!-- <kd>1</kd> -->        <!-- Damping coefficient -->
+        <!-- </ode>
+        </contact> -->
+      </collision>
+      <inertial>
+        <inertia>          <!-- Iniertia parameters 10x smaller then the correct values to be more stable in simulation -->
+          <ixx>0.000084</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000084</iyy>
+          <iyz>0</iyz>
+          <izz>0.000042</izz>
+        </inertia>
+        <mass>0.04</mass>
+      </inertial>
+      <visual name="cans_red_blue_blue_visual">
+        <geometry>
+          <mesh>
+            <uri>model://eurobot_25/cans_rbb/meshes/eurobot_2025_cans_rbb.dae</uri>
+            <scale>1.0 1.0 1.0</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+  </model>
+</sdf>

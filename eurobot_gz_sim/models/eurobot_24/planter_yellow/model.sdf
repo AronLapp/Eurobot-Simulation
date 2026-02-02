@@ -1,0 +1,194 @@
+<?xml version ="1.0"?>
+<sdf version="1.6">
+    <model name="yellow_planter">
+        <static>false</static>
+        <link name="yellow_planter_base">
+            <collision name="yellow_planter_base_collision">
+                <geometry>
+                <box>
+                    <size>0.172 0.325 0.022</size>
+                </box>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia> 
+                <ixx>0.000703</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>0.000703</iyy>
+                <iyz>0</iyz>
+                <izz>0.000703</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <visual name="yellow_planter_base_visual">
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <box>
+                        <size>0.172 0.325 0.022</size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>0.71 0.69 0.63 1.0</ambient>
+                    <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                    <specular>0.1 0.1 0.1 1</specular>
+                    <emissive>0 0 0 0</emissive>
+                </material>
+            </visual>
+        </link>
+        <link name="yellow_planter_wall_back">
+            <pose>-0.075 0 0.046 0 0 0</pose> 
+            <collision name="yellow_planter_wall_back_collision">
+                <geometry>
+                <box>
+                    <size>0.022 0.325 0.07</size>
+                </box>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia> 
+                <ixx>0.000703</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>0.000703</iyy>
+                <iyz>0</iyz>
+                <izz>0.000703</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <visual name="yellow_planter_wall_back_visual">
+                <geometry>
+                    <box>
+                        <size>0.022 0.325 0.07</size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>0.71 0.69 0.63 1.0</ambient>
+                    <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                    <specular>0.1 0.1 0.1 1</specular>
+                    <emissive>0 0 0 0</emissive>
+                </material>
+            </visual>
+            <visual name="wall_back_color_cap">
+                <pose>0 0 0.03505 0 0 0</pose>
+                <geometry>
+                <box>
+                    <size>0.022 0.325 0.0001</size>
+                </box>
+                </geometry>
+                <material>
+                    <ambient>0.98 0.75 0.00 1</ambient>
+                    <diffuse>0.98 0.75 0.00 1</diffuse>
+                    <specular>0.05 0.05 0.05 1</specular>
+                </material>
+            </visual>
+
+        </link>
+        <link name="yellow_planter_wall_left">
+            <pose>0.011 -0.1515 0.046 0 0 0</pose> 
+            <collision name="yellow_planter_wall_left_collision">
+                <geometry>
+                <box>
+                    <size>0.15 0.022 0.07</size>
+                </box>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia> 
+                <ixx>0.000703</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>0.000703</iyy>
+                <iyz>0</iyz>
+                <izz>0.000703</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <visual name="yellow_planter_wall_left_visual">
+                <geometry>
+                    <box>
+                        <size>0.15 0.022 0.07</size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>0.71 0.69 0.63 1.0</ambient>
+                    <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                    <specular>0.1 0.1 0.1 1</specular>
+                    <emissive>0 0 0 0</emissive>
+                </material>
+            </visual>
+            <visual name="wall_left_color_cap">
+                <pose>0 0 0.03505 0 0 0</pose>
+                <geometry>
+                <box>
+                    <size>0.15 0.022 0.0001</size>
+                </box>
+                </geometry>
+                <material>
+                    <ambient>0.98 0.75 0.00 1</ambient>
+                    <diffuse>0.98 0.75 0.00 1</diffuse>
+                    <specular>0.05 0.05 0.05 1</specular>
+                </material>
+            </visual>
+        </link>
+        <link name="yellow_planter_wall_right">
+            <pose>0.011 0.1515 0.046 0 0 0</pose> 
+            <collision name="yellow_planter_wall_right_collision">
+                <geometry>
+                <box>
+                    <size>0.15 0.022 0.07</size>
+                </box>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia> 
+                <ixx>0.000703</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>0.000703</iyy>
+                <iyz>0</iyz>
+                <izz>0.000703</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <visual name="yellow_planter_wall_right_visual">
+                <geometry>
+                    <box>
+                        <size>0.15 0.022 0.07</size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>0.71 0.69 0.63 1.0</ambient>
+                    <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                    <specular>0.1 0.1 0.1 1</specular>
+                    <emissive>0 0 0 0</emissive>
+                </material>
+            </visual>
+            <visual name="wall_right_color_cap">
+                <pose>0 0 0.03505 0 0 0</pose>
+                <geometry>
+                <box>
+                    <size>0.15 0.022 0.0001</size>
+                </box>
+                </geometry>
+                <material>
+                    <ambient>0.98 0.75 0.00 1</ambient>
+                    <diffuse>0.98 0.75 0.00 1</diffuse>
+                    <specular>0.05 0.05 0.05 1</specular>
+                </material>
+            </visual>
+        </link>
+        <joint name="back_wall_fixed" type="fixed">
+            <parent>yellow_planter_base</parent>
+            <child>yellow_planter_wall_back</child>
+        </joint>
+        <joint name="left_wall_fixed" type="fixed">
+            <parent>yellow_planter_base</parent>
+            <child>yellow_planter_wall_left</child>
+        </joint>
+        <joint name="right_wall_fixed" type="fixed">
+            <parent>yellow_planter_base</parent>
+            <child>yellow_planter_wall_right</child>
+        </joint>
+    </model>
+</sdf>

@@ -1,0 +1,816 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+
+  <world name="eurobot_2025">
+    <physics name="default_physics" type="ode">
+      <max_step_size>0.01</max_step_size>
+      <real_time_update_rate>10</real_time_update_rate>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <shadows>false</shadows>
+    </scene>
+    <light type="directional" name="light1">
+      <pose>1.5 1 50 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>1 1 1 0</specular>
+      <direction>1 0 0.5</direction>
+    </light>
+    <light type="directional" name="light2">
+      <pose>1.5 1 50 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>1 1 1 0</specular>
+      <direction>1 0 -0.5</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="ground_link">
+        <collision name="collision1">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 0</ambient>
+            <diffuse>0.1 0.1 0.2 0</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!--Playground-->
+    <include>
+      <name>playground</name>
+      <uri>model://eurobot_playground_25</uri>
+      <pose>1.5 1.0 -0.001 0 0 0</pose>
+    </include>
+
+    <!--Stage-->
+    <include>
+      <name>stage</name>
+      <uri>model://eurobot_25/stage</uri>
+      <pose>1.5 1.775 0.035 0 0 0</pose>
+    </include>
+
+    <!--Ramp Yellow-->
+    <include>
+      <name>ramp_yellow</name>
+      <uri>model://eurobot_25/ramp_yellow</uri>
+      <pose>0.85 1.9 0.035 0 0 0</pose>
+    </include>
+
+    <!--Ramp Blue-->
+    <include>
+      <name>ramp_blue</name>
+      <uri>model://eurobot_25/ramp_blue</uri>
+      <pose>2.15 1.9 0.035 0 0 0</pose>
+    </include>
+
+    <!-- Cans front left-->
+    <include>
+      <name>can11</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>0.625 0.25 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can12</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>0.725 0.25 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can13</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>0.825 0.25 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can14</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>0.925 0.25 0.055 0 0 0</pose>
+    </include>
+    <!-- planks front left-->
+    <include>
+      <name>plank_11</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>0.775 0.25 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_12</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>0.775 0.25 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans left front -->
+    <include>
+      <name>can21</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>0.075 0.25 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can22</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>0.075 0.35 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can23</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>0.075 0.45 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can24</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>0.075 0.55 0.055 0 0 0</pose>
+    </include>
+    <!-- planks left front -->
+    <include>
+      <name>plank_21</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>0.075 0.4 0.118 0 0 1.571</pose>
+    </include>
+    <include>
+      <name>plank_22</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>0.075 0.4 0.134 0 0 1.571</pose>
+    </include>
+
+    <!-- Cans left middle -->
+    <include>
+      <name>can31</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>0.075 1.175 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can32</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>0.075 1.275 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can33</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>0.075 1.375 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can34</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>0.075 1.475 0.055 0 0 0</pose>
+    </include>
+    <!-- planks left middle -->
+    <include>
+      <name>plank_31</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>0.075 1.325 0.118 0 0 1.571</pose>
+    </include>
+    <include>
+      <name>plank_32</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>0.075 1.325 0.134 0 0 1.571</pose>
+    </include>
+
+    <!-- Cans center left -->
+    <include>
+      <name>can41</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>0.95 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can42</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>1.05 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can43</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>1.15 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can44</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>1.25 0.95 0.055 0 0 0</pose>
+    </include>
+    <!-- planks center left -->
+    <include>
+      <name>plank_41</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>1.1 0.95 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_42</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>1.1 0.95 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans backstage left -->
+    <include>
+      <name>can51</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>0.675 1.725 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can52</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>0.775 1.725 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can53</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>0.875 1.725 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can54</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>0.975 1.725 0.055 0 0 0</pose>
+    </include>
+    <!-- planks backstage left -->
+    <include>
+      <name>plank_51</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>0.825 1.725 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_52</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>0.825 1.725 0.134 0 0 0</pose>
+    </include>
+
+
+    <!-- Cans front right-->
+    <include>
+      <name>can15</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>2.075 0.25 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can16</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>2.175 0.25 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can17</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>2.275 0.25 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can18</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>2.375 0.25 0.055 0 0 0</pose>
+    </include>
+    <!-- planks front right-->
+    <include>
+      <name>plank_13</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>2.225 0.25 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_14</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>2.225 0.25 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans right front -->
+    <include>
+      <name>can25</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>2.925 0.25 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can26</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>2.925 0.35 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can27</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>2.925 0.45 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can28</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>2.925 0.55 0.055 0 0 0</pose>
+    </include>
+    <!-- planks right front -->
+    <include>
+      <name>plank_23</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>2.925 0.4 0.118 0 0 1.571</pose>
+    </include>
+    <include>
+      <name>plank_24</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>2.925 0.4 0.134 0 0 1.571</pose>
+    </include>
+
+    <!-- Cans right middle -->
+    <include>
+      <name>can35</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>2.925 1.175 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can36</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>2.925 1.275 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can37</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>2.925 1.375 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can38</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>2.925 1.475 0.055 0 0 0</pose>
+    </include>
+    <!-- planks right middle -->
+    <include>
+      <name>plank_33</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>2.925 1.325 0.118 0 0 1.571</pose>
+    </include>
+    <include>
+      <name>plank_34</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>2.925 1.325 0.134 0 0 1.571</pose>
+    </include>
+
+    <!-- Cans center right -->
+    <include>
+      <name>can45</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>1.75 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can46</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>1.85 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can47</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>1.95 0.95 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can48</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>2.05 0.95 0.055 0 0 0</pose>
+    </include>
+    <!-- planks center right -->
+    <include>
+      <name>plank_43</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>1.9 0.95 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_44</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>1.9 0.95 0.134 0 0 0</pose>
+    </include>
+
+    <!-- Cans backstage right -->
+    <include>
+      <name>can55</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>2.025 1.725 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can56</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>2.125 1.725 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can57</name>
+      <uri>model://eurobot_25/cans_yrg</uri>
+      <pose>2.225 1.725 0.055 0 0 0</pose>
+    </include>
+    <include>
+      <name>can58</name>
+      <uri>model://eurobot_25/cans_rbb</uri>
+      <pose>2.325 1.725 0.055 0 0 0</pose>
+    </include>
+    <!-- planks backstage right -->
+    <include>
+      <name>plank_53</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>2.175 1.725 0.118 0 0 0</pose>
+    </include>
+    <include>
+      <name>plank_54</name>
+      <uri>model://eurobot_25/plank</uri>
+      <pose>2.175 1.725 0.134 0 0 0</pose>
+    </include>
+
+    <!--Walls-->
+    <model name="wall1">
+      <static>true</static>
+      <pose>1.502 0 0.045 0 0 0</pose>
+      <link name="body">
+        <collision name="collision1">
+          <geometry>
+            <box>
+              <size>3.04 0.02 0.09</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <box>
+              <size>3.04 0.02 0.09</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.71 0.69 0.63 1.0</ambient>
+            <diffuse>0.71 0.69 0.63 1.0</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall2">
+      <static>true</static>
+      <pose>1.502 2.01 0.045 0 0 0</pose>
+      <link name="body">
+        <collision name="collision1">
+          <geometry>
+            <box>
+              <size>3.04 0.02 0.09</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <box>
+              <size>3.04 0.02 0.09</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.71 0.69 0.63 1.0</ambient>
+            <diffuse>0.71 0.69 0.63 1.0</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall3">
+      <static>true</static>
+      <pose>3.01 1.0 0.045 0 0 0</pose>
+      <link name="body">
+        <collision name="collision1">
+          <geometry>
+            <box>
+              <size>0.02 2.0 0.09</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <box>
+              <size>0.02 2 0.09</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.71 0.69 0.63 1.0</ambient>
+            <diffuse>0.71 0.69 0.63 1.0</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall4">
+      <static>true</static>
+      <pose>-0.01 1.0 0.045 0 0 0</pose>
+      <link name="body">
+        <collision name="collision1">
+          <geometry>
+            <box>
+              <size>0.02 2.0 0.09</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual1">
+          <geometry>
+            <box>
+              <size>0.02 2 0.09</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.71 0.69 0.63 1.0</ambient>
+            <diffuse>0.71 0.69 0.63 1.0</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!--
+    <model name="stage">
+        <static>true</static>
+        <pose>1.5 1.775 0.035 0 0 0</pose>
+        <link name="body">
+            <collision name="stage">
+                <geometry>
+                <box>
+                    <size>0.9 0.45 0.07</size>
+                </box>
+                </geometry>
+            </collision>
+            <visual name="stage">
+              <pose>0.0 0 0 0 0 0</pose>
+              <geometry>
+                <box>
+                  <size>0.9 0.45 0.07</size>
+                </box>
+              </geometry>
+              <material>
+              <ambient>0.71 0.69 0.63 1.0</ambient>
+              <diffuse>0.71 0.69 0.63 1.0</diffuse>
+              <specular>0.1 0.1 0.1 1</specular>
+              <emissive>0 0 0 0</emissive>
+              </material>
+            </visual>
+        </link>
+    </model>
+    -->
+    <!--Landmarks yellow-->
+    <model name="landmark2">
+      <pose>-0.094 1.0 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>20.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.96 0.71 0.0 1</ambient>
+            <diffuse>0.96 0.71 0.0 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark4">
+      <pose>3.094 0.05 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>40.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.96 0.71 0.0 1</ambient>
+            <diffuse>0.96 0.71 0.0 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark6">
+      <pose>3.094 1.95 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>60.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.96 0.71 0.0 1</ambient>
+            <diffuse>0.96 0.71 0.0 1</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!--Landmarks purple-->
+    <!--
+    <model name="landmark1">
+      <pose>-0.094 0.05 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>10.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.52 0.30 0.31 1</ambient>
+              <diffuse>0.52 0.30 0.31 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark3">
+      <pose>-0.094 1.95 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+            <laser_retro>30.0</laser_retro>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.52 0.30 0.31 1</ambient>
+              <diffuse>0.52 0.30 0.31 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark5">
+      <pose>3.094 1.0 0.25 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <laser_retro>50.0</laser_retro>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <length>0.5</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+            <material>
+              <ambient>0.52 0.30 0.31 1</ambient>
+              <diffuse>0.52 0.30 0.31 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    -->
+
+    <!--
+    <model name="room_wall1">
+          <static>true</static>
+          <pose>-3.0 2.0 0.5 0 0 0</pose>
+          <link name="body">
+              <collision name="collision1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+              </collision>
+              <visual name="visual1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+                  <material>
+                  <ambient>0.71 0.69 0.63 1.0</ambient>
+                  <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                  <specular>0.1 0.1 0.1 1</specular>
+                  <emissive>0 0 0 0</emissive>
+                  </material>
+              </visual>
+          </link>
+      </model>
+
+      <model name="room_wall2">
+          <static>true</static>
+          <pose>1.5 6.0 0.5 0 0 0</pose>
+          <link name="body">
+              <collision name="collision1">
+                  <geometry>
+                  <box>
+                      <size>9.0 0.1 1.0</size>
+                  </box>
+                  </geometry>
+              </collision>
+              <visual name="visual1">
+                  <geometry>
+                  <box>
+                      <size>9.0 0.1 1.0</size>
+                  </box>
+                  </geometry>
+                  <material>
+                  <ambient>0.71 0.69 0.63 1.0</ambient>
+                  <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                  <specular>0.1 0.1 0.1 1</specular>
+                  <emissive>0 0 0 0</emissive>
+                  </material>
+              </visual>
+          </link>
+      </model>
+
+    <model name="room_wall3">
+          <static>true</static>
+          <pose>6.0 2.0 0.5 0 0 0</pose>
+          <link name="body">
+              <collision name="collision1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+              </collision>
+              <visual name="visual1">
+                  <geometry>
+                  <box>
+                      <size>0.1 8.0 1.0</size>
+                  </box>
+                  </geometry>
+                  <material>
+                  <ambient>0.71 0.69 0.63 1.0</ambient>
+                  <diffuse>0.71 0.69 0.63 1.0</diffuse>
+                  <specular>0.1 0.1 0.1 1</specular>
+                  <emissive>0 0 0 0</emissive>
+                  </material>
+              </visual>
+          </link>
+      </model>
+      -->
+
+  </world>
+</sdf>
